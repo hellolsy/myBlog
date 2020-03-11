@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!-- namespace和dao的接口对应 -->
+<mapper namespace = "com.yuer.dao.ICommentDao">
+
+	<select id="getCommentById" resultMap="CommentMap" parameterType="Long">
+		select * from hi_comment c where c.id = #{id}
+	</select>
+	
+
+	<!-- 还得根据创建时间排序 -->
+	<select id="listCommentByBlogId" resultMap="CommentMap" parameterType="Long">
+		select * from hi_comment c where c.blog_id = #{blogId} order by create_time desc
+	</select>
+	
+	<select id="getComments" resultMap="CommentMap" parameterType="Long">
+		select * from hi_comment c where c.parent_id = #{commentId} order by create_time desc
+	</select>
+	
+	<select id="listCommentByBlogIdAndRoot" resultMap="CommentMap" parameterType="Long">
+		select * from hi_comment c where c.blog_id = #{blogId} and c.parent_id is null order by create_time desc
+	</select>
+
+	<insert id ="saveComment"  parameterType="Comment">
+		insert into hi_comment(admin_comment,content,create_time,email,head_picture,nick_name,blog_id,parent_id) 
+		values(#{adminComment},#{content},#{createTime},#{email},#{headPicture},#{nickName},#{blog.id},#{parent.id})
+	</insert>
+
+	<resultMap type="Comment" id="CommentMap">
+		<result property="id" column="id"/>
+		<result property="nickName" column="nick_name"/>
+		<result property="email" column="email"/>
+		<result property="content" column="content"/>
+		<result property="headPicture" column="head_picture"/>
+		<result property="createTime" column="create_time"/>
+		<result property="blog.id" column="blog_id"/>
+		<result property="parent.id" column="parent_id"/>
+		<result property="adminComment" column="admin_comment"/>
+	</resultMap>
+
+
+
+
+</mapper>
+

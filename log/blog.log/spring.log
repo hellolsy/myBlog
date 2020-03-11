@@ -1,0 +1,271 @@
+2020-03-11 00:02:15.607  INFO 15356 --- [restartedMain] com.yuer.MyBlogApplication               : Starting MyBlogApplication on DESKTOP-VNSP335 with PID 15356 (C:\Users\Yuer\Documents\workspace-sts-3.9.10.RELEASE\myBlog\target\classes started by Yuer in C:\Users\Yuer\Documents\workspace-sts-3.9.10.RELEASE\myBlog)
+2020-03-11 00:02:15.634 DEBUG 15356 --- [restartedMain] com.yuer.MyBlogApplication               : Running with Spring Boot v2.2.5.RELEASE, Spring v5.2.4.RELEASE
+2020-03-11 00:02:15.635  INFO 15356 --- [restartedMain] com.yuer.MyBlogApplication               : No active profile set, falling back to default profiles: default
+2020-03-11 00:02:15.806  INFO 15356 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-03-11 00:02:15.807  INFO 15356 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-03-11 00:02:17.949  INFO 15356 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-03-11 00:02:17.954  INFO 15356 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-03-11 00:02:18.074  INFO 15356 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 76ms. Found 0 Redis repository interfaces.
+2020-03-11 00:02:20.873  INFO 15356 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-11 00:02:20.895  INFO 15356 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-11 00:02:20.898  INFO 15356 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2020-03-11 00:02:21.149  INFO 15356 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-11 00:02:21.151  INFO 15356 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 5344 ms
+2020-03-11 00:02:23.536  INFO 15356 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-11 00:02:23.810  INFO 15356 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-03-11 00:02:25.445  INFO 15356 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-03-11 00:02:25.594  INFO 15356 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-11 00:02:25.603  INFO 15356 --- [restartedMain] com.yuer.MyBlogApplication               : Started MyBlogApplication in 11.037 seconds (JVM running for 14.56)
+2020-03-11 00:03:17.909  INFO 15356 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-11 00:03:17.910  INFO 15356 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-11 00:03:17.919  INFO 15356 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
+2020-03-11 00:03:17.982  INFO 15356 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-11 00:03:18.868  INFO 15356 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-11 00:03:18.934 DEBUG 15356 --- [http-nio-8080-exec-1] c.y.dao.IBlogDao.getTotalAndPublished    : ==>  Preparing: select count(*) from hi_blog where is_published = 1 
+2020-03-11 00:03:19.003 DEBUG 15356 --- [http-nio-8080-exec-1] c.y.dao.IBlogDao.getTotalAndPublished    : ==> Parameters: 
+2020-03-11 00:03:19.053 DEBUG 15356 --- [http-nio-8080-exec-1] c.y.dao.IBlogDao.getTotalAndPublished    : <==      Total: 1
+2020-03-11 00:03:19.073 DEBUG 15356 --- [http-nio-8080-exec-1] c.y.d.I.listBlogByParamAndPublished      : ==>  Preparing: select * from hi_blog where is_published = 1 order by id limit ?, ? 
+2020-03-11 00:03:19.074 DEBUG 15356 --- [http-nio-8080-exec-1] c.y.d.I.listBlogByParamAndPublished      : ==> Parameters: 0(Integer), 7(Integer)
+2020-03-11 00:03:19.108 DEBUG 15356 --- [http-nio-8080-exec-1] c.y.d.I.listBlogByParamAndPublished      : <==      Total: 4
+2020-03-11 00:03:19.110 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.ITypeDao.getTypeById        : ==>  Preparing: select id,type_name from hi_type t where t.id = ? 
+2020-03-11 00:03:19.112 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.ITypeDao.getTypeById        : ==> Parameters: 13(Long)
+2020-03-11 00:03:19.119 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.ITypeDao.getTypeById        : <==      Total: 1
+2020-03-11 00:03:19.119 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.IUserDao.findById           : ==>  Preparing: select * from hi_user u where u.id = ? 
+2020-03-11 00:03:19.120 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.IUserDao.findById           : ==> Parameters: 1(Long)
+2020-03-11 00:03:19.135 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.IUserDao.findById           : <==      Total: 1
+2020-03-11 00:03:19.149 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.ITypeDao.listTypeTop        : ==>  Preparing: select id,type_name from hi_type t order by (select count(*) from hi_blog where type_id = t.id ) desc limit ? 
+2020-03-11 00:03:19.149 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.ITypeDao.listTypeTop        : ==> Parameters: 6(Integer)
+2020-03-11 00:03:19.153 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.ITypeDao.listTypeTop        : <==      Total: 5
+2020-03-11 00:03:19.154 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.ITypeDao.listBlogNum        : ==>  Preparing: select count(*) from hi_blog where type_id = ? 
+2020-03-11 00:03:19.154 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.ITypeDao.listBlogNum        : ==> Parameters: 13(Long)
+2020-03-11 00:03:19.156 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.ITypeDao.listBlogNum        : <==      Total: 1
+2020-03-11 00:03:19.157 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.ITypeDao.listBlogNum        : ==>  Preparing: select count(*) from hi_blog where type_id = ? 
+2020-03-11 00:03:19.158 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.ITypeDao.listBlogNum        : ==> Parameters: 12(Long)
+2020-03-11 00:03:19.160 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.ITypeDao.listBlogNum        : <==      Total: 1
+2020-03-11 00:03:19.160 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.ITypeDao.listBlogNum        : ==>  Preparing: select count(*) from hi_blog where type_id = ? 
+2020-03-11 00:03:19.161 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.ITypeDao.listBlogNum        : ==> Parameters: 16(Long)
+2020-03-11 00:03:19.162 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.ITypeDao.listBlogNum        : <==      Total: 1
+2020-03-11 00:03:19.163 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.ITypeDao.listBlogNum        : ==>  Preparing: select count(*) from hi_blog where type_id = ? 
+2020-03-11 00:03:19.163 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.ITypeDao.listBlogNum        : ==> Parameters: 17(Long)
+2020-03-11 00:03:19.165 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.ITypeDao.listBlogNum        : <==      Total: 1
+2020-03-11 00:03:19.166 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.ITypeDao.listBlogNum        : ==>  Preparing: select count(*) from hi_blog where type_id = ? 
+2020-03-11 00:03:19.166 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.ITypeDao.listBlogNum        : ==> Parameters: 18(Long)
+2020-03-11 00:03:19.168 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.ITypeDao.listBlogNum        : <==      Total: 1
+2020-03-11 00:03:19.179 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.ITagDao.listTagTop          : ==>  Preparing: select id,tag_name from hi_tag t order by (select count(*) from hi_blog_tags where tags_id = t.id ) desc limit ? 
+2020-03-11 00:03:19.180 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.ITagDao.listTagTop          : ==> Parameters: 10(Integer)
+2020-03-11 00:03:19.186 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.ITagDao.listTagTop          : <==      Total: 6
+2020-03-11 00:03:19.187 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.ITagDao.listBlogNum         : ==>  Preparing: select count(*) from hi_blog_tags where tags_id = ? 
+2020-03-11 00:03:19.188 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.ITagDao.listBlogNum         : ==> Parameters: 2(Long)
+2020-03-11 00:03:19.192 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.ITagDao.listBlogNum         : <==      Total: 1
+2020-03-11 00:03:19.227 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.ITagDao.listBlogNum         : ==>  Preparing: select count(*) from hi_blog_tags where tags_id = ? 
+2020-03-11 00:03:19.227 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.ITagDao.listBlogNum         : ==> Parameters: 3(Long)
+2020-03-11 00:03:19.229 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.ITagDao.listBlogNum         : <==      Total: 1
+2020-03-11 00:03:19.230 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.ITagDao.listBlogNum         : ==>  Preparing: select count(*) from hi_blog_tags where tags_id = ? 
+2020-03-11 00:03:19.230 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.ITagDao.listBlogNum         : ==> Parameters: 5(Long)
+2020-03-11 00:03:19.232 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.ITagDao.listBlogNum         : <==      Total: 1
+2020-03-11 00:03:19.233 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.ITagDao.listBlogNum         : ==>  Preparing: select count(*) from hi_blog_tags where tags_id = ? 
+2020-03-11 00:03:19.244 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.ITagDao.listBlogNum         : ==> Parameters: 4(Long)
+2020-03-11 00:03:19.246 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.ITagDao.listBlogNum         : <==      Total: 1
+2020-03-11 00:03:19.247 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.ITagDao.listBlogNum         : ==>  Preparing: select count(*) from hi_blog_tags where tags_id = ? 
+2020-03-11 00:03:19.248 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.ITagDao.listBlogNum         : ==> Parameters: 6(Long)
+2020-03-11 00:03:19.251 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.ITagDao.listBlogNum         : <==      Total: 1
+2020-03-11 00:03:19.253 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.ITagDao.listBlogNum         : ==>  Preparing: select count(*) from hi_blog_tags where tags_id = ? 
+2020-03-11 00:03:19.253 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.ITagDao.listBlogNum         : ==> Parameters: 7(Long)
+2020-03-11 00:03:19.255 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.ITagDao.listBlogNum         : <==      Total: 1
+2020-03-11 00:03:19.260 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.IBlogDao.listBlogTop        : ==>  Preparing: select id,title from hi_blog where is_published = 1 and is_recommend = 1 order by update_time desc limit ? 
+2020-03-11 00:03:19.260 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.IBlogDao.listBlogTop        : ==> Parameters: 8(Integer)
+2020-03-11 00:03:19.263 DEBUG 15356 --- [http-nio-8080-exec-1] com.yuer.dao.IBlogDao.listBlogTop        : <==      Total: 4
+2020-03-11 00:03:21.231 DEBUG 15356 --- [http-nio-8080-exec-9] com.yuer.dao.IBlogDao.listBlogTop        : ==>  Preparing: select id,title from hi_blog where is_published = 1 and is_recommend = 1 order by update_time desc limit ? 
+2020-03-11 00:03:21.232 DEBUG 15356 --- [http-nio-8080-exec-9] com.yuer.dao.IBlogDao.listBlogTop        : ==> Parameters: 3(Integer)
+2020-03-11 00:03:21.234 DEBUG 15356 --- [http-nio-8080-exec-9] com.yuer.dao.IBlogDao.listBlogTop        : <==      Total: 3
+2020-03-11 00:03:22.751 DEBUG 15356 --- [http-nio-8080-exec-10] com.yuer.dao.IBlogDao.getBlogById        : ==>  Preparing: select * from hi_blog t where t.id = ? 
+2020-03-11 00:03:22.752 DEBUG 15356 --- [http-nio-8080-exec-10] com.yuer.dao.IBlogDao.getBlogById        : ==> Parameters: 1(Long)
+2020-03-11 00:03:22.758 DEBUG 15356 --- [http-nio-8080-exec-10] com.yuer.dao.IBlogDao.getBlogById        : <==      Total: 1
+2020-03-11 00:03:22.760 DEBUG 15356 --- [http-nio-8080-exec-10] com.yuer.dao.IUserDao.findById           : ==>  Preparing: select * from hi_user u where u.id = ? 
+2020-03-11 00:03:22.760 DEBUG 15356 --- [http-nio-8080-exec-10] com.yuer.dao.IUserDao.findById           : ==> Parameters: 1(Long)
+2020-03-11 00:03:22.762 DEBUG 15356 --- [http-nio-8080-exec-10] com.yuer.dao.IUserDao.findById           : <==      Total: 1
+2020-03-11 00:03:22.992 DEBUG 15356 --- [http-nio-8080-exec-10] com.yuer.dao.IBlogDao.updateViewCounts   : ==>  Preparing: update hi_blog b set b.view_counts = b.view_counts + 1 where b.id = ? 
+2020-03-11 00:03:22.996 DEBUG 15356 --- [http-nio-8080-exec-10] com.yuer.dao.IBlogDao.updateViewCounts   : ==> Parameters: 1(Long)
+2020-03-11 00:03:22.999 DEBUG 15356 --- [http-nio-8080-exec-10] com.yuer.dao.IBlogDao.updateViewCounts   : <==    Updates: 1
+2020-03-11 00:03:24.384 DEBUG 15356 --- [http-nio-8080-exec-4] com.yuer.dao.IBlogDao.listBlogTop        : ==>  Preparing: select id,title from hi_blog where is_published = 1 and is_recommend = 1 order by update_time desc limit ? 
+2020-03-11 00:03:24.385 DEBUG 15356 --- [http-nio-8080-exec-4] com.yuer.dao.IBlogDao.listBlogTop        : ==> Parameters: 3(Integer)
+2020-03-11 00:03:24.387 DEBUG 15356 --- [http-nio-8080-exec-4] com.yuer.dao.IBlogDao.listBlogTop        : <==      Total: 3
+2020-03-11 00:04:05.403 DEBUG 15356 --- [http-nio-8080-exec-10] com.yuer.dao.IBlogDao.getBlogById        : ==>  Preparing: select * from hi_blog t where t.id = ? 
+2020-03-11 00:04:05.405 DEBUG 15356 --- [http-nio-8080-exec-10] com.yuer.dao.IBlogDao.getBlogById        : ==> Parameters: 1(Long)
+2020-03-11 00:04:05.410 DEBUG 15356 --- [http-nio-8080-exec-10] com.yuer.dao.IBlogDao.getBlogById        : <==      Total: 1
+2020-03-11 00:04:05.410 DEBUG 15356 --- [http-nio-8080-exec-10] com.yuer.dao.IUserDao.findById           : ==>  Preparing: select * from hi_user u where u.id = ? 
+2020-03-11 00:04:05.411 DEBUG 15356 --- [http-nio-8080-exec-10] com.yuer.dao.IUserDao.findById           : ==> Parameters: 1(Long)
+2020-03-11 00:04:05.415 DEBUG 15356 --- [http-nio-8080-exec-10] com.yuer.dao.IUserDao.findById           : <==      Total: 1
+2020-03-11 00:04:05.422 DEBUG 15356 --- [http-nio-8080-exec-10] com.yuer.dao.IBlogDao.updateViewCounts   : ==>  Preparing: update hi_blog b set b.view_counts = b.view_counts + 1 where b.id = ? 
+2020-03-11 00:04:05.422 DEBUG 15356 --- [http-nio-8080-exec-10] com.yuer.dao.IBlogDao.updateViewCounts   : ==> Parameters: 1(Long)
+2020-03-11 00:04:05.424 DEBUG 15356 --- [http-nio-8080-exec-10] com.yuer.dao.IBlogDao.updateViewCounts   : <==    Updates: 1
+2020-03-11 00:04:05.508 ERROR 15356 --- [http-nio-8080-exec-10] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-10] Exception processing template "blog": An error happened during template parsing (template: "class path resource [templates/blog.html]")
+
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/blog.html]")
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098) [thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072) [thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362) [thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189) [thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1373) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1118) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1057) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1639) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [na:1.8.0_65]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [na:1.8.0_65]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_65]
+Caused by: org.attoparser.ParseException: Could not parse as expression: "/lib/waypoints/jquery.waypoints.min.js" (template: "blog" - line 426, col 57)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	... 48 common frames omitted
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as expression: "/lib/waypoints/jquery.waypoints.min.js" (template: "blog" - line 426, col 57)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:131) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:62) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:44) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.EngineEventUtils.parseAttributeExpression(EngineEventUtils.java:220) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.EngineEventUtils.computeAttributeExpression(EngineEventUtils.java:207) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:125) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.attoparser.HtmlCDATAContentElement.handleOpenElementEnd(HtmlCDATAContentElement.java:104) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	... 50 common frames omitted
+
+2020-03-11 00:04:05.515 ERROR 15356 --- [http-nio-8080-exec-10] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/blog.html]")] with root cause
+
+org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as expression: "/lib/waypoints/jquery.waypoints.min.js" (template: "blog" - line 426, col 57)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:131) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:62) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:44) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.EngineEventUtils.parseAttributeExpression(EngineEventUtils.java:220) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.EngineEventUtils.computeAttributeExpression(EngineEventUtils.java:207) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:125) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.attoparser.HtmlCDATAContentElement.handleOpenElementEnd(HtmlCDATAContentElement.java:104) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362) ~[thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189) ~[thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1373) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1118) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1057) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1639) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [na:1.8.0_65]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [na:1.8.0_65]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_65]
+
+2020-03-11 00:04:05.540 ERROR 15356 --- [http-nio-8080-exec-10] s.e.ErrorMvcAutoConfiguration$StaticView : Cannot render error page for request [/blog/1] and exception [An error happened during template parsing (template: "class path resource [templates/blog.html]")] as the response has already been committed. As a result, the response may have the wrong status code.
+2020-03-11 00:04:06.766 DEBUG 15356 --- [http-nio-8080-exec-8] com.yuer.dao.IBlogDao.listBlogTop        : ==>  Preparing: select id,title from hi_blog where is_published = 1 and is_recommend = 1 order by update_time desc limit ? 
+2020-03-11 00:04:06.770 DEBUG 15356 --- [http-nio-8080-exec-8] com.yuer.dao.IBlogDao.listBlogTop        : ==> Parameters: 3(Integer)
+2020-03-11 00:04:06.772 DEBUG 15356 --- [http-nio-8080-exec-8] com.yuer.dao.IBlogDao.listBlogTop        : <==      Total: 3
+2020-03-11 00:04:57.852 DEBUG 15356 --- [http-nio-8080-exec-7] com.yuer.dao.IBlogDao.getBlogById        : ==>  Preparing: select * from hi_blog t where t.id = ? 
+2020-03-11 00:04:57.852 DEBUG 15356 --- [http-nio-8080-exec-7] com.yuer.dao.IBlogDao.getBlogById        : ==> Parameters: 1(Long)
+2020-03-11 00:04:57.857 DEBUG 15356 --- [http-nio-8080-exec-7] com.yuer.dao.IBlogDao.getBlogById        : <==      Total: 1
+2020-03-11 00:04:57.858 DEBUG 15356 --- [http-nio-8080-exec-7] com.yuer.dao.IUserDao.findById           : ==>  Preparing: select * from hi_user u where u.id = ? 
+2020-03-11 00:04:57.858 DEBUG 15356 --- [http-nio-8080-exec-7] com.yuer.dao.IUserDao.findById           : ==> Parameters: 1(Long)
+2020-03-11 00:04:57.860 DEBUG 15356 --- [http-nio-8080-exec-7] com.yuer.dao.IUserDao.findById           : <==      Total: 1
+2020-03-11 00:04:57.862 DEBUG 15356 --- [http-nio-8080-exec-7] com.yuer.dao.IBlogDao.updateViewCounts   : ==>  Preparing: update hi_blog b set b.view_counts = b.view_counts + 1 where b.id = ? 
+2020-03-11 00:04:57.863 DEBUG 15356 --- [http-nio-8080-exec-7] com.yuer.dao.IBlogDao.updateViewCounts   : ==> Parameters: 1(Long)
+2020-03-11 00:04:57.873 DEBUG 15356 --- [http-nio-8080-exec-7] com.yuer.dao.IBlogDao.updateViewCounts   : <==    Updates: 1
+2020-03-11 00:04:59.204 DEBUG 15356 --- [http-nio-8080-exec-6] com.yuer.dao.IBlogDao.listBlogTop        : ==>  Preparing: select id,title from hi_blog where is_published = 1 and is_recommend = 1 order by update_time desc limit ? 
+2020-03-11 00:04:59.206 DEBUG 15356 --- [http-nio-8080-exec-6] com.yuer.dao.IBlogDao.listBlogTop        : ==> Parameters: 3(Integer)
+2020-03-11 00:04:59.212 DEBUG 15356 --- [http-nio-8080-exec-6] com.yuer.dao.IBlogDao.listBlogTop        : <==      Total: 3

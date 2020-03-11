@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="admin/_fragments :: head(~{::title})">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>博客管理登录</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+<link rel="stylesheet" href="../../static/css/me.css">
+</head>
+<body>
+
+	<br>
+	<br>
+	<br>
+	<div class="m-container-small m-padded-tb-massive"
+		style="max-width: 30em !important;">
+		<div class="ur container">
+			<div class="ui middle aligned center aligned grid">
+				<div class="column">
+					<h2 class="ui teal image header">
+						<div class="content">管理后台登录</div>
+					</h2>
+					<form class="ui large form login_form" method="post" action="#"
+						th:action="@{/admin/login}">
+						<div class="ui  segment">
+							<div class="field">
+								<div class="ui left icon input">
+									<i class="user icon"></i> <input type="hidden" name="userName">
+									<input type="text" id="name" placeholder="用户名">
+								</div>
+							</div>
+							<div class="field">
+								<div class="ui left icon input">
+									<i class="lock icon"></i> <input type="hidden" name="password">
+									<input type="password" id="pwd" placeholder="密码">
+								</div>
+							</div>
+							<!-- 如果type是button的话，就不能实现敲回车自动触发按钮的功能s -->
+							<button type="button"
+								class="ui fluid large teal button login_btn">登 录</button>
+						</div>
+
+						<div class="ui error mini message"></div>
+						<div class="ui mini negative message"
+							th:unless="${#strings.isEmpty(message)}" th:text="${message}">用户名和密码错误</div>
+
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--/*/<th:block th:replace="admin/_fragments :: script">/*/-->
+	<script
+		src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+	<!--/*/</th:block>/*/-->
+
+	<script type="text/javascript" src="js/cryptojs/rollups/aes.js"
+		th:src="@{/js/cryptojs/rollups/aes.js}"></script>
+	<script type="text/javascript"
+		src="js/cryptojs/components/pad-zeropadding-min.js"
+		th:src="@{/js/cryptojs/components/pad-zeropadding-min.js}"></script>
+
+	<script>
+		// 这个是submit前会调用
+		$('.ui.form').form({
+			fields : {
+				username : {
+					identifier : 'userName',
+					rules : [ {
+						type : 'empty',
+						prompt : '请输入用户名'
+					} ]
+				},
+				password : {
+					identifier : 'password',
+					rules : [ {
+						type : 'empty',
+						prompt : '请输入密码'
+					} ]
+				}
+			}
+		});
+
+		// 当按键enter时就会触发点击事件，因为不是将submit改为了button,所以
+		// 密码框enter不会触发点击事件，只能手动增加这个方法
+		$("#pwd").bind("keydown",function(event){  
+            if(event.keyCode == 13)      
+            {  
+            	$(".login_btn").click();
+　　　　　		
+            }  
+        });
+		
+
+		$(".login_btn").click(
+		// 前端aes加密
+		function() {
+			
+			var username = $("#name").val();
+			var password = $("#pwd").val();
+
+			if (username.length != 0 && password.length != 0) {
+				
+				$("#pwd").val(encrypt(password));
+				$("[name='userName']").val(encrypt(username));
+				$("[name='password']").val(encrypt(password));
+
+				$(".login_form").submit();
+			}
+
+		});
+
+		/**
+		 * 加密（依赖aes.js）
+		 * @param word 加密的字符串
+		 * @returns {*}
+		 */
+		function encrypt(word) {
+			var key = CryptoJS.enc.Utf8.parse("bWFsbHB3ZA==WNST");
+			var srcs = CryptoJS.enc.Utf8.parse(word);
+			var encrypted = CryptoJS.AES.encrypt(srcs, key, {
+				mode : CryptoJS.mode.ECB,
+				padding : CryptoJS.pad.Pkcs7
+			});
+			return encrypted.toString();
+		}
+
+		/**
+		 * 解密
+		 * @param word 解密的字符串
+		 * @returns {*}
+		 */
+		function decrypt(word) {
+			var key = CryptoJS.enc.Utf8.parse("bWFsbHB3ZA==WNST");
+			var decrypt = CryptoJS.AES.decrypt(word, key, {
+				mode : CryptoJS.mode.ECB,
+				padding : CryptoJS.pad.Pkcs7
+			});
+			return CryptoJS.enc.Utf8.stringify(decrypt).toString();
+		}
+	</script>
+
+</body>
+</html>

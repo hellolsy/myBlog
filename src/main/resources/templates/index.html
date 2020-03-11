@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+
+	<head th:replace="_fragments :: head(~{::title})">
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>首页</title>
+		<!--这个css好像不行，使用cdn形式的把-->
+		<!--<link rel="stylesheet" href="css/semantic.min.css" />-->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css" />
+		<link rel="stylesheet" href="../static/css/me.css" />
+	</head>
+
+	<body class = "m-body">
+
+		<!--
+        	导航
+        	inverted反转色，segment片段 attached依附（使这个组件没有圆角,并且依附的意思,不过好像依附的话，需要两个都有attached）
+        	teal 青色 secondary 灰色的作用
+        	container 响应式的 并且不会占满自己理会
+        	active代表选中这个菜单中的item
+        -->
+		<nav th:replace="_fragments :: menu(1)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+
+			<div class="ui container">
+				<!--stackable代表可堆叠的，用于手机端的显示-->
+				<div class="ui inverted secondary stackable menu">
+					<h2 class="ui teal header item">Blog</h2>
+					<a href="#" class="m-item item m-mobile-hide"><i class="mini home icon"></i>首页</a>
+					<a href="#" class="m-item item m-mobile-hide"><i class="mini idea icon"></i>分类</a>
+					<a href="#" class="m-item item m-mobile-hide"><i class="mini tags icon"></i>标签</a>
+					<a href="#" class="m-item item m-mobile-hide"><i class="mini clone icon"></i>归档</a>
+					<a href="#" class="m-item item m-mobile-hide"><i class="mini info icon"></i>关于我</a>
+
+					<div class="m-item right item m-mobile-hide">
+						<!--
+                        	外层加入icon的意思是这个icon是放在这个容器里的
+                        	
+                        	transparent透明的意思
+                        	link 代表这个组件当鼠标在上面时会变成手状
+                        -->
+						<div class="ui icon inverted transparent input">
+							<input type="text" placeholder="Search..." />
+							<i class="search link icon"></i>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+			
+			<a href="#" id = "menu_show" class="ui black icon button m-right-top m-mobile-show">
+				<i class="sidebar icon"></i>
+			</a>
+			
+		</nav>
+
+		<!--
+			中间内容	
+			m-container自定义的，使宽度大一点
+		-->
+		<div class="m-container m-padded-tb-big  main">
+			<div class="ui container">
+				<div class="ui stackable grid">
+					<!--左边博客列表-->
+					<div class="eleven wide column">
+						<!--header-->
+						<!--top attached 代表上部的圆角不消失-->
+						<div class="ui top attached segment">
+							<!--middle aligned 垂直方向的居中，需要理解这里和center align(字体水平方向的居中)-->
+							<div class="ui middle aligned two column grid">
+								<div class="column">
+									<h3 class="ui teal header">博客</h3>
+								</div>
+								<!--right（segment中的） 需要和aligned一起使用，好像作为item则不需要
+									m-inline-block 自定义样式，将块级元素转为行级
+								-->
+								<div class="right aligned column">
+									共
+									<h3 class="ui orange header m-inline-block m-text-thin" th:text="${total}"> 14 </h3> 篇
+								</div>
+							</div>
+						</div>
+
+						<!--content--> 
+						<div class="ui attached segment">
+							<!--padded使之有点内边距
+								vertical 每个segment之间有个横线
+							-->
+							<div class="ui padded vertical segment m-padded-tb-big" th:each="blog : ${page.content}">
+								<div class="ui mobile middle aligned reversed stackable grid" >
+									<div class="ui eleven wide column">
+										<h3 class="ui header"><a href="#" class="m-black" th:href="@{/blog/{id}(id=${blog.id})}" th:text="${blog.title}">你真的理解什么是财富自由吗？</a></h3>
+										<p class="m-text" th:text="|${blog.description}......|">正确做好任何一件事情的前提是清晰、正确的理解目标。而事实是，我们很多人很多时候根本没有对目标正确的定义，甚至根本从来就没有想过，只是大家都那么做而已…...</p>
+
+										<div class="ui grid">
+											<!--这里ui 可以省略-->
+											<div class="eleven wide column">
+												<!--list默认是竖着的，想要横就加horizontal-->
+												<div class="ui mini link horizontal list">
+													<div class="item">
+														<!--avatar代表圆形的小图片-->
+														<img src="https://unsplash.it/100/100?image=1005" th:src="@{${blog.user.headImage}}" alt="" class="ui avatar image" />
+														<div class="content">
+															<a href="#" class="header" th:text="${blog.user.nickName}">LSY</a>
+														</div>
+													</div>
+
+													<div class="item">
+														<i class="calendar icon"></i> <span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd')}">2020-01-06</span>
+													</div>
+
+													<div class="item">
+														<i class="eye icon"></i> <span th:text="${blog.viewCounts}">2342</span>
+													</div>
+
+												</div>
+
+											</div>
+											<!--right aligned放置的位置不能在five后-->
+											<div class="right aligned five wide column">
+												<a href="#" class="ui teal basic label mini m-text-thin" target="_blank" th:text="${blog.type.typeName}">认知升级</a>
+											</div>
+										</div>
+									</div>
+
+									<div class="ui five wide column">
+										<a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank">
+											<img src="https://unsplash.it/800/450?image=1005"  th:src="@{${blog.firstPicture}}" alt="" class="ui rounded image" />
+										</a>
+									</div>
+
+								</div>
+
+							</div>
+							
+							
+							
+							
+							
+							
+						
+						</div>
+
+						<!--footer-->
+						<!--bottom attached 代表下部的圆角不消失-->
+						<div class="ui bottom attached segment" th:if="${page.totalPages}>1">
+							<div class="ui middle aligned two column grid" >
+								<div class="column">
+									<!--basic将背景色转为字体色-->
+									<a href="#" class="ui mini teal basic button" th:href="@{/{page}(page=${page.page}-1)}" th:unless="${page.first}">上一页</a>
+								</div>
+								<!--right（segment中的） 需要和aligned一起使用，好像作为item则不需要
+									m-inline-block 自定义样式，将块级元素转为行级
+								-->
+								<div class="right aligned column">
+									<a href="#" class="ui mini teal basic button" th:href="@{/{page}(page=${page.page}+1)}" th:unless="${page.last}">下一页</a>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+					
+					<!--右边的top-->
+					<div class="five wide column">
+						<!--这里使用segments（一组segment）-->
+						<!--分类-->
+						<div class="ui segments">
+							<!--片段想要变灰色的话，不能用grey这类属性，使用secondary-->
+							<div class="ui secondary segment">
+								<div class="ui two column grid">
+									<div class="column"><i class="idea icon"></i>分类</div>
+									<div class="right aligned column">
+										<a href="" th:href="@{/types/-1}" target="_blank">more <i class="angle double right icon"></i></a>
+									</div>
+								</div>
+							</div>
+							<!--这里segment加颜色属性的作用在两个segment之间有这个颜色的分割线，如果只有一个segment，则无效果-->
+							<div class="ui teal segment">
+								<!--menu本来是水平显示的，加一个vertical则变为竖着的(而list默认是竖着的，需要横着要加horizontal)-->
+								<!--fluid代表这个menu里的item填充满其外层容器-->
+								<div class="ui fluid vertical menu" >
+									<a href="#" th:href="@{/types/{id}(id = ${type.id})}" class="item" th:each="type : ${types}">
+										<span th:text="${type.typeName}">学习日志</span>
+										<!--item的特色->文字放在最左，其他文字之后的居右-->
+										<!--left pointing将这个规则的标签变为带小三角的-->
+										<div class="ui teal basic left pointing label" th:text="${type.blogNum}">13</div>
+									</a>												
+									
+								</div>
+								
+							</div>
+							
+							
+						</div>
+						
+						<!--标签-->
+						<div class="ui segments m-margin-top-large">
+							<div class="ui secondary segment">
+								<div class="ui two column grid">
+									<div class="column"><i class="tags icon"></i>标签</div>
+									<div class="right aligned column">
+										<a th:href="@{/tags/-1}" href="" target="_blank">more <i class="angle double right icon"></i></a>
+									</div>
+								</div>
+							</div>
+							<div class="ui teal segment">
+								<a href="#" target="_blank" th:href="@{/tags/{id}(id = ${tag.id})}" class="ui teal basic left pointing label m-margin-tb-tiny" th:each="tag : ${tags}">
+									<span th:text="${tag.tagName}">方法论</span> <div class="detail" th:text="${tag.blogNum}">13</div>
+								</a>
+								
+								
+							</div>
+						</div>
+						
+						<!--最新推荐-->
+						<div class="ui segments m-margin-top-large">
+							<div class="ui secondary segment">
+								<div class="column"><i class="bookmark icon"></i>最新推荐</div>
+							</div>
+							<div class="ui segment" th:each="blog : ${blogs}">
+								<a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="m-black m-text-thin" th:text="${blog.title}">用户故事 (User Story)</a>
+							</div>
+							
+						</div>
+						
+						
+						<!--二维码-->
+						<!--分割线(好像和上次用的有点区别)-->
+						<!--horizontal代表字显示在分割线中间-->
+						<h4 class="ui horizontal divider header m-margin-top-large ">扫码关注我</h4>
+						<!--centered 又来了一个居中（好像是用于有宽度的），好多哦，弄清楚区别(这里用center或者center aligned没效果)-->
+						<div class="ui centered card" style="width: 11em;">
+							<img src="../static/img/dragonCat3.gif"  th:src="@{/img/wechat.jpg}" alt="" class="ui rounded image" />
+						</div>
+					
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<!--
+			底部footer
+			这个会弄栅格，不过和bootstrap不同的是不是分12格，而是16格
+			
+			wide代表填满 column代表列
+			divided代表分割线
+			center aligned 放在容器属性的话，即这个容器中字体居中
+		-->
+		<footer th:replace="_fragments :: footer" class="ui inverted attached segment m-padded-tb-massive">
+			<div class="ui center aligned container">
+				<div class="ui inverted divided stackable grid">
+					<div class="three wide column">
+						<div class="ui inverted link list">
+							<div class="item">
+								<img src="../static/img/dragonCat2.gif" class="ui rounded image" alt="" style="width:110px">
+							</div>
+						</div>
+					</div>
+					<div class="three wide column">
+						<h4 class="ui inverted header m-text-thin m-text-spaced">最新博客</h4>
+						<div class="ui inverted link list">
+							<a href="#" class="item">用户故事 (User Story) </a>
+							<a href="#" class="item">用户故事 (User Story) </a>
+							<a href="#" class="item">用户故事 (User Story) </a>
+						</div>
+					</div>
+					<div class="three wide column">
+						<h4 class="ui inverted header m-text-thin m-text-spaced">联系我</h4>
+						<div class="ui inverted link list">
+							<a href="#" class="item m-text-thin">Email：lirenmi@163.com</a>
+							<a href="#" class="item m-text-thin">QQ：865729312</a>
+						</div>
+					</div>
+					<div class="seven wide column">
+						<h4 class="ui inverted header m-text-thin m-text-spaced">Blog</h4>
+						<p class="m-text-thin m-text-spaced m-opacity-mini">这是我的个人博客、会分享关于编程、写作、思考相关的任何内容，希望可以给来到这儿的人有所帮助...</p>
+					</div>
+
+				</div>
+				
+				<!--section好像是与上面的div有一个距离-->
+				<div class="ui inverted section divider"></div>
+				<p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright © 2020-2100 LSY Designed by Her Lover</p>
+
+			</div>
+
+		</footer>
+		
+		<!-- 这个注释在静态情况下，是注释，在thymeleaf中则不是注释，用作替换成——fragments中的 -->
+		<!--/*/<th:block th:replace="_fragments :: script">/*/-->
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+		<script type="text/javascript" src="https://cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
+		<!--/*/</th:block>/*/-->
+		
+		<script>
+			
+			$("#menu_show").click(function() {
+//				当m-mobile-hide属性存在时,点击后消除,不存在时,点击后加入这个属性
+				$(".m-item").toggleClass("m-mobile-hide");
+			})
+		</script>
+	
+	</body>
+
+</html>

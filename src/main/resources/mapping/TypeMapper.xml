@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!-- namespace和dao的接口对应 -->
+<!--  如果是多参数那么就不能使用parameterType， 
+	改用#｛index｝是第几个就用第几个的索引，索引从0开始
+	好像这个不行？ 直接不写parameterType，直接传值即可
+	
+	insert：   插入n条记录，返回影响行数n。（n>=1，n为0时实际为插入失败）
+
+update：更新n条记录，返回影响行数n。（n>=0）
+
+delete： 删除n条记录，返回影响行数n。（n>=0）
+	-->
+	
+<!--
+    注意：这个insert/update/delete标签只是一个模板，在做操作时，其实是以SQL语句为核心的
+        即在做增/删/时，insert/update/delete标签可通用 ，但做查询时只能用select标签，我们提倡什么操作就用什么标签
+ -->
+<mapper namespace = "com.yuer.dao.ITypeDao">
+	
+
+	<insert id ="saveType"  parameterType="Type">
+		insert into hi_type(type_name) values(#{typeName})
+	</insert>
+	
+	<select id ="deleteType"  parameterType="Long">
+		<!--  
+		还有使用了别名就不能使用原名了
+		可以通过空格或者as给表起别名但是注意如果操作的数据库是Oracle的话，只能使用空格，as不符合Oracle的语法。-->
+		<!-- 报错原因记录一下都得记录在博客上得：
+			原因：mysql不支持平常得别名写法，其他数据库可能支持如Oracle
+			加一点东西就可以解决报错
+			delete t from hi_type t where t.id = #{id}
+			有几个别名写几个
+		 -->
+		<!--  delete from hi_type t where t.id = #{id} 这个报错-->
+		delete from hi_type  where id = #{id}
+	</select>
+
+	
+	<!-- mybatis中如果是select标签中使用update语句不会有返回值，，，所以得改为update -->
+	<update id ="updateType">
+		update hi_type t set t.type_name = #{typeName} where t.id = #{id}
+	</update>
+	
+	<select id ="getTypeById" resultMap="TypeMap" parameterType="Long">
+		select id,type_name from hi_type t where t.id = #{id}
+	</select>
+	
+	
+	<!--  
+		resultType:
+
+1、基本类型  ：resultType=基本类型
+
+2、List类型：   resultType=List中元素的类型
+
+3、Map类型     resultType =map
+	
+	-->
+	<select id ="listType" resultMap="TypeMap">
+		select id,type_name from hi_type
+	</select>
+	
+	<!-- mysql没有提供top,但是好像可以使用limit实现
+		// 这里根据啥博客数量排序好像得复杂点
+		// 子查询
+	 -->
+	  
+	<select id ="listTypeTop" resultMap="TypeMap" parameterType="Integer">
+		select id,type_name from hi_type t order by (select count(*) from hi_blog where type_id = t.id ) desc limit #{size} 
+	</select>
+	
+	<select id="listBlogNum" resultType="Integer" parameterType="Long">
+		select count(*) from hi_blog where type_id = #{id}
+	</select>
+	
+	
+	<!-- 这里返回值可能注入错误，需要进行Map映射 -->
+	<select id ="listTypeByParam" resultMap="TypeMap" parameterType="Integer">
+		select id,type_name from hi_type order by id limit #{start}, #{size}
+	</select>
+	
+	<resultMap type="Type" id="TypeMap">
+		<result property="id" column="id"/>
+		<result property="typeName" column="type_name"/>
+		
+	</resultMap>
+	
+	
+	<select id = "getTotal" resultType="Integer">
+		select count(*) from hi_type
+	</select>
+	
+	<select id = "getTypeByTypeName" resultMap="TypeMap"  parameterType="String">
+		select * from hi_type t where t.type_name = #{typeName}
+	</select>
+	
+
+	
+
+
+
+
+</mapper>
+
